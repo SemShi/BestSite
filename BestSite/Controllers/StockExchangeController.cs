@@ -11,6 +11,11 @@ namespace BestSite.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         #region Таблица Акционеры
         public IActionResult ShareHolderList() 
         {
