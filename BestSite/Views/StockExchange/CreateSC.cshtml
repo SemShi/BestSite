@@ -1,0 +1,55 @@
+﻿@model BestSite.Sharecertificate
+
+@{
+    ViewData["Title"] = "Добавление сертификата";
+}
+
+<h1>Добавление сертификата</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateSC">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BuySharecount" class="control-label"></label>
+                <input asp-for="BuySharecount" class="form-control" />
+                <span asp-validation-for="BuySharecount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Priceforone" class="control-label"></label>
+                <input asp-for="Priceforone" class="form-control" />
+                <span asp-validation-for="Priceforone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Buyinfo" class="control-label"></label>
+                <input asp-for="Buyinfo" class="form-control" />
+                <span asp-validation-for="Buyinfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shareinfoid" class="control-label"></label>
+                <input asp-for="Shareinfoid" class="form-control" />
+                <span asp-validation-for="Shareinfoid" class="text-danger"></span>
+                <!--<select asp-for="Shareinfoid" class ="form-control" asp-items="ViewBag.Shareinfoid"></select>-->
+            </div>
+            <div class="form-group">
+                <label asp-for="Shareholderid" class="control-label"></label>
+                <input asp-for="Shareholderid" class="form-control" />
+                <span asp-validation-for="Shareholderid" class="text-danger"></span>
+                <!--<select asp-for="Shareholderid" class ="form-control" asp-items="((new SelectList(ViewBag.Shareholderid)))"></select>-->
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShareCertificates">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

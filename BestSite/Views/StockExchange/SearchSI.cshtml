@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BestSite.Shareinfo>
+
+@{
+    ViewData["Title"] = "Поиск по инф.";
+}
+
+<h1>Поиск по инф. об акциях</h1>
+
+<p>
+    <a asp-action="CreateSI">Добавить информацию</a>
+</p>
+<form method = "get" asp-action="SearchSI">
+    <p>
+        <input type="search" placeholder="Введите текст" value="@ViewData["Search"]" name="Searching" style="width:500px;" />
+        <input type="submit" value="Поиск" class="btn btn-primary"/>
+        <a asp-action="ShareInfo">Сбросить</a>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Issuer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sharetype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sharecount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shareissuedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShareAuthorizedcapital)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Issuer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sharetype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sharecount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shareissuedate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShareAuthorizedcapital)
+            </td>
+            <td>
+                <a asp-action="EditSI" asp-route-id="@item.SiId">Ред.</a> |
+                <a asp-action="DeleteSI" asp-route-id="@item.SiId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+﻿global using System;
+global using System.Diagnostics;
+global using System.Collections.Generic;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.VisualStudio.Web.CodeGeneration.Design;
+global using Microsoft.EntityFrameworkCore.Design;
+global using Npgsql;
+global using Npgsql.EntityFrameworkCore.PostgreSQL;
+global using BestSite.Models;
+global using BestSite.Controllers;

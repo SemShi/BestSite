@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BestSite.Shareholder>
+
+@{
+    ViewData["Title"] = "Акционеры";
+}
+
+<h1>Акционеры</h1>
+
+<p>
+    <a asp-action="CreateSH">Добавить акционера</a>
+</p>
+<form method = "get" asp-action="SearchSH">
+    <p>
+        <input type="search" placeholder="Введите текст" value="@ViewData["Search"]" name="Searching" style="width:500px;" />
+        <input type="submit" value="Поиск" class="btn btn-primary"/>
+        <a asp-action="ShareHolderList">Сбросить</a>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.strBirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportSerial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strBirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportSerial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                <a asp-action="EditSH" asp-route-id="@item.ShId">Ред.</a> |
+                <a asp-action="DeleteSH" asp-route-id="@item.ShId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
