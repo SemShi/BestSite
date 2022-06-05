@@ -24,9 +24,11 @@ namespace BestSite
         public int Shareinfoid { get; set; }
         [DisplayName("Id владельца")]
         public int Shareholderid { get; set; }
-        [DisplayName("Общая сумма")]
-        [Column(TypeName = "decimal(10,2)")]
-
+        [DisplayName("Дата покупки")]
+        public string strBuyinfo
+        {
+            get { return Buyinfo.ToString("d"); }
+        }
         public virtual Shareholder Shareholder { get; set; } = null!;
         public virtual Shareinfo Shareinfo { get; set; } = null!;
     }

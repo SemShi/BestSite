@@ -23,6 +23,11 @@ namespace BestSite
         public DateTime Shareissuedate { get; set; }
         [DisplayName("Уставной капитал")]
         public decimal ShareAuthorizedcapital { get; set; }
+        [DisplayName("Дата выпуска")]
+        public string strShareissuedate
+        {
+            get { return Shareissuedate.ToString("d"); }
+        }
 
         public virtual ICollection<Sharecertificate> Sharecertificates { get; set; }
     }

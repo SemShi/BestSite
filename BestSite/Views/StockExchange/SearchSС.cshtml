@@ -4,7 +4,7 @@
     ViewData["Title"] = "Поиск по сертификатам";
 }
 
-<h1>Поиск по сертификатамС</h1>
+<h1>Поиск по сертификатам</h1>
 
 <p>
     <a asp-action="CreateSC">Добавить сертификат</a>
@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.BuySharecount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Buyinfo)
+                @Html.DisplayNameFor(model => model.strBuyinfo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priceforone)
@@ -32,10 +32,10 @@
                 @Html.DisplayNameFor(model => model.Totalprice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Shareholder)
+                @Html.DisplayNameFor(model => model.Shareholderid)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Shareinfo)
+                @Html.DisplayNameFor(model => model.Shareinfoid)
             </th>
             <th></th>
         </tr>
@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.BuySharecount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Buyinfo)
+                @Html.DisplayFor(modelItem => item.strBuyinfo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Priceforone)

@@ -1,4 +1,6 @@
-﻿namespace BestSite.Controllers
+﻿using System.Globalization;
+
+namespace BestSite.Controllers
 {
     public class StockExchangeController : Controller
     {
@@ -66,7 +68,6 @@
         public async Task<IActionResult> SearchSH(string Searching)
         {
             ViewData["Search"] = Searching;
-
             var query = from x in SEdb.Shareholders select x;
             if (!String.IsNullOrEmpty(Searching))
             {
@@ -77,10 +78,16 @@
                 x.PassportNumber.Contains(Searching) ||
                 x.PassportSerial.Contains(Searching) ||
                 x.PhoneNumber.Contains(Searching) ||
-                x.City.Contains(Searching));
+                x.City.Contains(Searching) ||
+                x.BirthDate.Equals(DateTime.ParseExact(IsStringDateHasValidFormat(Searching.Replace(".", "/").Trim(' ')), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
             }
-
             return View(await query.AsNoTracking().ToListAsync());
+        }
+
+        private string IsStringDateHasValidFormat(string Searching)
+        {
+            if (Searching.Length == 10) return Searching;
+            else return Searching = "01/01/1901";
         }
         #endregion
 
@@ -148,7 +155,8 @@
                 query = query.Where(x =>
                 x.BuySharecount.ToString().Contains(Searching) ||
                 x.Totalprice.ToString().Contains(Searching) ||
-                x.Priceforone.ToString().Contains(Searching));
+                x.Priceforone.ToString().Contains(Searching) ||
+                x.Buyinfo.Equals(DateTime.ParseExact(IsStringDateHasValidFormat(Searching.Replace(".", "/").Trim(' ')), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
             }
             return View(await query.AsNoTracking().ToListAsync());
         }
@@ -218,7 +226,8 @@
                 query = query.Where(x =>
                 x.Sharetype.Contains(Searching) ||
                 x.Issuer.Contains(Searching) ||
-                x.Sharecount.ToString().Contains(Searching));
+                x.Sharecount.ToString().Contains(Searching) ||
+                x.Shareissuedate.Equals(DateTime.ParseExact(IsStringDateHasValidFormat(Searching.Replace(".", "/").Trim(' ')), "dd/MM/yyyy", CultureInfo.InvariantCulture)));
             }
             return View(await query.AsNoTracking().ToListAsync());
         }
