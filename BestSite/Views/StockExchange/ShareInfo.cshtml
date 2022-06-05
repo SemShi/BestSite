@@ -7,13 +7,14 @@
 <h1>Информация об акциях</h1>
 
 <p>
-    <a asp-action="CreateSI">Добавить информацию</a>
+    <a asp-controller="StockExchange" asp-action="Index" class="btn btn-outline-dark">Назад<i class="glyphicon glyphicon-chevron-right"></i></a>
+    <a asp-action="CreateSI" class="btn btn-outline-dark">Добавить информацию<i class="glyphicon glyphicon-chevron-right"></i></a>
 </p>
 <form method = "get" asp-action="SearchSI">
     <p>
         <input type="search" placeholder="Введите текст" value="@ViewData["Search"]" name="Searching" style="width:500px;" />
-        <input type="submit" value="Поиск" class="btn btn-primary"/>
-        <a asp-action="ShareInfo">Сбросить</a>
+        <input type="submit" value="Поиск" class="btn btn-outline-dark"><i class="glyphicon glyphicon-chevron-right"></i>
+        <a asp-action="ShareInfo" class="btn btn-outline-dark">Сбросить<i class="glyphicon glyphicon-chevron-right"></i></a>
     </p>
 </form>
 <table class="table">
@@ -56,8 +57,8 @@
                 @Html.DisplayFor(modelItem => item.ShareAuthorizedcapital)
             </td>
             <td>
-                <a asp-action="EditSI" asp-route-id="@item.SiId">Ред.</a> |
-                <a asp-action="DeleteSI" asp-route-id="@item.SiId">Удалить</a>
+                <a asp-action="EditSI" asp-route-id="@item.SiId" class="btn btn-outline-dark">Ред.<i class="glyphicon glyphicon-chevron-right"></i></a>
+                <a asp-action="DeleteSI" asp-route-id="@item.SiId" class="btn btn-outline-dark">Удалить<i class="glyphicon glyphicon-chevron-right"></i></a>
             </td>
         </tr>
 }

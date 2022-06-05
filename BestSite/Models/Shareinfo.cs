@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BestSite
 {
@@ -14,6 +13,7 @@ namespace BestSite
         [DisplayName("Id")]
         public int SiId { get; set; }
         [DisplayName("Эмитент")]
+        [RegularExpression(@"^[а-яА-Яa-zA-Z\s]*$", ErrorMessage = "Используйте только буквы!")]
         public string Issuer { get; set; } = null!;
         [DisplayName("Вид акции")]
         public string Sharetype { get; set; } = null!;

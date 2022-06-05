@@ -18,7 +18,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Sharetype" class="control-label"></label>
-                <input asp-for="Sharetype" class="form-control" />
+                <select name ="Sharetype" class="form-control">
+                    <option value="Привилегированная">Привилегированная</option>
+                    <option value="Обыкновенная">Обыкновенная</option>
+                </select>
                 <span asp-validation-for="Sharetype" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -38,14 +41,11 @@
             </div>
             <p></p>
             <div class="form-group">
-                <input type="submit" value="Добавить" class="btn btn-primary" />
+                <input type="submit" value="Добавить" class="btn btn-outline-dark" />
+                <a asp-action="ShareInfo" class="btn btn-outline-dark">Назад<i class="glyphicon glyphicon-chevron-right"></i></a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="ShareInfo">Назад</a>
 </div>
 
 @section Scripts {

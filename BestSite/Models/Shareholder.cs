@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
 
 namespace BestSite
 {
@@ -43,7 +39,6 @@ namespace BestSite
         {
             get { return BirthDate.ToString("d"); }
         }
-
         public virtual ICollection<Sharecertificate> Sharecertificates { get; set; }
 
     }
