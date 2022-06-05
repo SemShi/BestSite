@@ -7,13 +7,13 @@
 <h1>Поиск по акционерам</h1>
 
 <p>
-    <a asp-action="CreateSH">Добавить акционера</a>
+    <a asp-action="CreateSH" class="btn btn-outline-dark">Добавить акционера<i class="glyphicon glyphicon-chevron-right"></i></a>
 </p>
 <form method = "get" asp-action="SearchSH">
     <p>
         <input type="search" placeholder="Введите текст" value="@ViewData["Search"]" name="Searching" style="width:500px;" />
-        <input type="submit" value="Поиск" class="btn btn-primary"/>
-        <a asp-action="ShareHolderList">Сбросить</a>
+        <input type="submit" value="Поиск" class="btn btn-outline-dark"/>
+        <a asp-action="ShareHolderList" class="btn btn-outline-dark">Сбросить<i class="glyphicon glyphicon-chevron-right"></i></a>
     </p>
 </form>
 <table class="table">
@@ -74,8 +74,8 @@
                 @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
-                <a asp-action="EditSH" asp-route-id="@item.ShId">Ред.</a> |
-                <a asp-action="DeleteSH" asp-route-id="@item.ShId">Удалить</a>
+                <a asp-action="EditSH" asp-route-id="@item.ShId" class="btn btn-outline-dark">Ред.<i class="glyphicon glyphicon-chevron-right"></i></a>
+                <a asp-action="DeleteSH" asp-route-id="@item.ShId" class="btn btn-outline-dark">Удалить<i class="glyphicon glyphicon-chevron-right"></i></a>
             </td>
         </tr>
 }

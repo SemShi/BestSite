@@ -7,13 +7,13 @@
 <h1>Поиск по сертификатам</h1>
 
 <p>
-    <a asp-action="CreateSC">Добавить сертификат</a>
+    <a asp-action="CreateSC" class="btn btn-outline-dark">Добавить сертификат<i class="glyphicon glyphicon-chevron-right"></i></a>
 </p>
 <form method = "get" asp-action="SearchSС">
     <p>
         <input type="search" placeholder="Введите текст" value="@ViewData["Search"]" name="Searching" style="width:500px;" />
-        <input type="submit" value="Поиск" class="btn btn-primary"/>
-        <a asp-action="ShareCertificates">Сбросить</a>
+        <input type="submit" value="Поиск" class="btn btn-outline-dark"/>
+        <a asp-action="ShareCertificates" class="btn btn-outline-dark">Сбросить<i class="glyphicon glyphicon-chevron-right"></i></a>
     </p>
 </form>
 <table class="table">
@@ -62,8 +62,8 @@
                 @Html.DisplayFor(modelItem => item.Shareinfoid)
             </td>
             <td>
-                <a asp-action="EditSC" asp-route-id="@item.ScId">Ред.</a> |
-                <a asp-action="DeleteSC" asp-route-id="@item.ScId">Удалить</a>
+                <a asp-action="EditSC" asp-route-id="@item.ScId" class="btn btn-outline-dark">Ред.<i class="glyphicon glyphicon-chevron-right"></i></a>
+                <a asp-action="DeleteSC" asp-route-id="@item.ScId" class="btn btn-outline-dark">Удалить<i class="glyphicon glyphicon-chevron-right"></i></a>
             </td>
         </tr>
 }
