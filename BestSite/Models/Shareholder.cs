@@ -33,7 +33,7 @@ namespace BestSite
         [RegularExpression(@"\d{6}", ErrorMessage = "Введите номер пасспорта в формате XXXXXX")]
         public string PassportNumber { get; set; } = null!;
         [DisplayName("Телефон")]
-        [RegularExpression(@"\d{11}", ErrorMessage = "Введите номер телефона в формате 8XXXXXXXXXX (11 цифр)")]
+        [RegularExpression(@"^8\d{10}", ErrorMessage = "Введите номер телефона в формате 8XXXXXXXXXX (11 цифр)")]
         public string PhoneNumber { get; set; } = null!;
         [DisplayName("Город")]
         [RegularExpression(@"^[а-яА-Яa-zA-Z\s]*$", ErrorMessage = "Используйте только буквы!")]
